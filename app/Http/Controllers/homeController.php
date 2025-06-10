@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Traits\CallView;
+use Illuminate\Support\Facades\View;
 
 class homeController extends Controller
 {
-    public function __invoke(Request $request): View
+    use CallView;
+    private $view = 'home';
+    public function __invoke()
     {
-        return View('home');
-    }
-
-    public function about($id): View
-    {
-        return view('about', ['id' => $id]);
+        return $this->callView($this->view);
     }
 }
