@@ -11,6 +11,9 @@ class homeController extends Controller
     private $view = 'home';
     public function __invoke()
     {
-        return $this->callView($this->view);
+        return $this->callView($this->view, [
+            'title' => 'Home',
+            "valores" => ['João da Silva', "João da Silva 2", "João da Silva 3"]
+        ]);
     }
 }

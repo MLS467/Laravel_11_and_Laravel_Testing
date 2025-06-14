@@ -1,11 +1,12 @@
 <div>
-    <h1>Home Page</h1>
+    @includeIf('common.header')
 
-    <div>
-        <a href="/about/teste">Teste</a>
-        <a href="/about/teste2">Teste2</a>
-        <a href="/welcome">Welcome Laravel</a>
-        <a href="/">Home</a>
-    </div>
+    @foreach ($valores as $val )
+    <h1>{{ $val }}</h1>
+    @endforeach
+
+    <h2>{{ rand(1,100) }}</h2>
+
+
     <!-- Always remember that you are absolutely unique. Just like everyone else. - Margaret Mead -->
 </div>
