@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class userController extends Controller
 {
@@ -21,7 +22,20 @@ class userController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        $values = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8|confirmed',
+            'php' => 'required',
+            'javascript' => 'nullable',
+            "genero" => 'nullable'
+        ]);
+
+        $values['php'] = $request->has('php') ? true : false;
+        $values['javascript'] = $request->has('javascript') ? true : false;
+        $values['password'] = Hash::make($values['password']);
+
+        return $values;
     }
 
     public function show($id)

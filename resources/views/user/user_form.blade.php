@@ -4,22 +4,52 @@
 <div>
     <!-- It is never too late to be what you might have been. - George Eliot -->
 
+
+
+    <h1>Formulário de Usuário</h1>
+
     <form action={{route("user_store")  }} method="post">
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" id="name" name="name" "
-                required>
+                >
+            <span>
+            @error('name')
+            <x-message-banner msg='{{ $message }}' class=" error" />
+            @enderror
+            </span>
         </div>
         <div class=" form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" name="email" "
-                required>
+                >
+                @error('email')
+                <span>
+                 {{ $message }}
+                </span>
+                @enderror
         </div>
         <div class=" form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password"
                 placeholder="Leave blank to keep current password">
+            @error('password')
+            <span>
+                {{ $message }}
+            </span>
+            @enderror
+        </div>
+
+        <div class=" form-group">
+            <label for="password_confirmation">password_confirmation</label>
+            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
+                placeholder="Leave blank to keep current password">
+            @error('password_confirmation')
+            <span>
+                {{ $message }}
+            </span>
+            @enderror
         </div>
 
         <div>

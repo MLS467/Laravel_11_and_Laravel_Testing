@@ -36,8 +36,9 @@
     .form-group {
         margin-bottom: 1rem;
         display: flex;
-        flex-direction: column;
-        max-width: 400px;
+        gap: 10px;
+        flex-direction: row;
+        max-width: 50%;
     }
 
     .form-group label {
