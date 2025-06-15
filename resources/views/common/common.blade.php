@@ -32,6 +32,10 @@
         box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
     }
 
+    .input_error {
+        outline: none;
+        border: 1px solid red !important;
+    }
 
     .form-group {
         margin-bottom: 1rem;
