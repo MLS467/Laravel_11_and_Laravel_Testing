@@ -6,7 +6,7 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -26,3 +26,11 @@ Route::get("/user_form", [userController::class, 'create'])
 
 Route::post("/user_form", [userController::class, 'store'])
     ->name('user_store'); // rota para salvar o usuário
+
+// #VIEWS
+// Route::view('/home', 'Home.home')->name('hm');
+// Route::view('/test/{teste}', 'Home.test')->name('tt');
+
+// #CONTROLLERS
+// Route::get('/home/batata/frita', homeController::class)->name('home');
+// Route::get('/home/batata/{teste}', [homeController::class, 'test'])->name('test');
