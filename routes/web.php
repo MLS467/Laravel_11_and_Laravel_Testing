@@ -4,6 +4,7 @@ use App\Http\Controllers\aboutController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\Home21Controller;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\studentController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,7 +54,7 @@ Route::prefix('/student')
 
 Route::prefix('/student/Brazil')
     ->group(function () {
-        Route::controller(Home21Controller::class)
+        Route::controller(studentController::class)
             ->group(function () {
 
                 Route::get("/", "index");
