@@ -1,5 +1,4 @@
 <div>
-    <a href={{ route('home') }}>Home por name route</a>
-    <br>
-    <a href={{ url()->route('home') }}>Home por name to</a>
+    <h1>Welcome</h1>
+    <!-- People find pleasure in different ways. I find it in keeping my mind clear. - Marcus Aurelius -->
 </div>
