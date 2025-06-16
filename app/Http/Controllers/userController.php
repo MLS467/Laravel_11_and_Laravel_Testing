@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Traits\CallView;
+use App\Rules\UpperCase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class userController extends Controller
 {
+    use CallView;
     public function index()
     {
         return view('user.index');
@@ -14,7 +17,7 @@ class userController extends Controller
 
     public function create()
     {
-        return view('user.user_form', [
+        return $this->callView('user.user_form', [
             'title' => 'User Form',
             'description' => 'This is a user form page.'
         ]);
@@ -24,7 +27,7 @@ class userController extends Controller
     {
         $values = $request->validate(
             [
-                'name' => 'required|string|max:255',
+                'name' => ['required', 'string', 'max:255', new UpperCase()],
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required|string|min:8|confirmed',
                 'php' => 'required',
