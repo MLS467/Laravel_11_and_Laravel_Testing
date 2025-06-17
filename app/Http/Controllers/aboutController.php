@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
-class homeController
+class aboutController
 {
     public function __invoke()
     {
-        return view('home');
+        return view('about');
     }
 }

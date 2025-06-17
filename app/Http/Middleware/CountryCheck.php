@@ -15,16 +15,9 @@ class CountryCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (
-            !explode(
-                ".",
-                $request->ip()
-            )[0] === '127'
-        ) {
-            return Response("IP inválido", 403);
-        }
+        if (!$request->country or strtolower($request->country) != strtolower('Brazil'))
+            return Response()->json('Não pode acessar fora do Brazil', 403);
 
-        echo $request->ip();
         return $next($request);
     }
 }

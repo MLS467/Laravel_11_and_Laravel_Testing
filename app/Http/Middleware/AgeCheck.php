@@ -15,17 +15,8 @@ class AgeCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // $request é a instância da requisição HTTP
-        // $next é a função que chama o próximo middleware ou o controlador 
-
-        if ($request->age < 18) {
-            return Response("Não rola papai", 403);
-        }
-
-
-
-        // dd(str_contains('127.0.0.1', )));
-
+        if (!$request->age or $request->age < 18)
+            return Response("Acesso apenas para maiores de 18 anos", 403);
 
         return $next($request);
     }

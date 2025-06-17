@@ -13,23 +13,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // $middleware->append(AgeCheck::class); // middleware global aplicadado a a todas as rotas
-
-
-        // $middleware->appendToGroup('AgeAndCountryCheck', AgeCheck::class); // middleware aplicado a um grupo de rotas
-
-
-        // middleware aplicado a todas as rotas
-        // $middleware->use([
+        // Register middleware
+        // $middleware->appendToGroup('Age', [
         //     AgeCheck::class
-        //]) 
-
-        // grupo de middleware
-        $middleware->appendToGroup('AgeAndCountryCheck', [
-            CountryCheck::class,
-            AgeCheck::class,
-        ]);
+        // ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        // Register exception handlers
     })->create();
