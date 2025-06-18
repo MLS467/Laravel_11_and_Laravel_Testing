@@ -1,0 +1,1 @@
+Inspecting Model -> php artisan model:show <name-table>

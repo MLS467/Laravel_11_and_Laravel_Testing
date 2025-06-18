@@ -9,7 +9,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Email</th>
-                <th>Qtd</th> {{-- cuidado com exibição de senha --}}
+                <th>Qtd</th>
             </tr>
         </thead>
         <tbody>

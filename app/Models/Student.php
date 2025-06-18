@@ -17,14 +17,8 @@ class Student extends Model
         'batch',
     ];
 
-    public function test($values)
+    public function getStudent()
     {
-        $res = [];
-        foreach ($values as $value) {
-            if ($value['batch'] > 1) {
-                $res[] = $value;
-            }
-        }
-        return $res;
+        return Student::all()->where('batch', '>', 1);
     }
 }
