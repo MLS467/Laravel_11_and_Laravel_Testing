@@ -10,7 +10,7 @@
 <body>
     <h1>Cadastrar Usuário</h1>
 
-    <form method="POST" action="{{ route('user.store') }}">
+    <form method="POST" action="{{ route('home') }}">
         @csrf
 
         <input type="hidden" name="id">

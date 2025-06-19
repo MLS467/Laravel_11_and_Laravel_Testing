@@ -10,7 +10,7 @@
 <body>
     <h1>Atualizar Usuário</h1>
 
-    <form method="POST" action="{{ route('user.update', ['id' => $id]) }}">
+    <form method="POST" action="{{ route('home')}}">
         @method('PUT')
         @csrf
         <input type="hidden" name='id' value={{ $id }}>
