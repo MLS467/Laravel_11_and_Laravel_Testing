@@ -1,32 +1,3 @@
-@extends('layout.common')
-
-@section('content')
-<div class="container">
-    <span>{{ $result }}</span>
-    <h2>Lista de Estudantes</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Qtd</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($content_students as $student)
-            <tr>
-                <td>{{ $student['name'] }}</td>
-                <td>{{ $student['email'] }}</td>
-                <td>{{ $student['batch'] }}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
-
-@endsection
-
-@section('styles')
 <style>
 body {
     background-color: #121212;
@@ -77,4 +48,3 @@ tr:hover {
     background-color: #333;
 }
 </style>
-@endsection
