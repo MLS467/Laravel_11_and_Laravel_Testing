@@ -2,48 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class UserController
 {
-    public function queries(Request $req)
+    public function EloquenteQueryBuilder(Request $req)
     {
-        // Example of using the request object
+        // $users = User::get();
+        $users = User::all();
 
-        $result = DB::table('users')->get();
+        // $users = User::where('id', 1)->get();
+        // $users = User::first();
+        // $users = array($users);
 
-        // $result = DB::table('users')
-        //     ->where('id', '2')
-        //     ->get();
-
-        // $result = DB::table('users')->first();
-
-
-        // $result = DB::table('users')->insert([
-        //     'name' => 'batata',
-        //     'email' => 'batata@potato.com',
-        //     'password' => 'password'
+        // $user = User::insert([
+        //     'name' => 'JAGO',
+        //     'email' => 'Jaguar@jago.com',
+        //     'password' => '456456'
         // ]);
 
-        // $updated = DB::table('users')
-        //     ->where('id', '2')
-        //     ->update(['name' => 'Bolado']);
+        $user = User::find('14')->update(
+            [
+                'name' => 'teste',
+                'email' => 'teste@teste.com',
+                'password' => 'teste'
+            ]
+        );
 
-        // if ($updated) {
-        //     echo "Atualizado com sucesso!";
-        //     return response()->json($result);
+        // if ($user) {
+        //     return response()->json("Atualizado com sucesso");
+        // } else {
+        //     return [];
         // }
 
-        // $delete = DB::table('users')
-        //     ->where('id', '2')
-        //     ->delete();
 
-        // if ($delete)
-        //     return response()->json($result);
 
-        return response()->json($result);
-
-        // return "erro ao deletar!";
+        return view('user', ['users' => $users]);
     }
 }
