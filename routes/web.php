@@ -1,13 +1,19 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', WelcomeController::class);
 
-Route::get('/home', [UserController::class, 'index'])
-    ->name('home');
+Route::get('/login', [LoginController::class, 'login'])
+    ->name('login');
 
-Route::post('/add', [UserController::class, 'getPostUser'])
-    ->name('add');
+Route::get('/logout', [loginController::class, 'logout'])
+    ->name('logout');
+
+Route::post('/auth', [LoginController::class, 'auth'])
+    ->name('auth');
+
+Route::get('/profile', [LoginController::class, 'profile'])
+    ->name('profile');
