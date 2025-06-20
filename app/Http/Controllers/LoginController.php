@@ -31,7 +31,8 @@ class LoginController
     public function profile()
     {
         if (!session()->has('user'))
-            return to_route('login');
+            return to_route('login')
+                ->with('success', 'Logout realizado com sucesso');;
 
         return view('profile');
     }

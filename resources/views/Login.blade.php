@@ -4,6 +4,12 @@
 @section('content')
 <div class="login-container">
     <h2>Login</h2>
+
+    @if(session('success'))
+    <x-message class="success" msg="{{ session('success') }}" />
+    @endif
+
+
     <form method="POST" action={{ route('auth') }}>
         @csrf
         <div class="form-group">

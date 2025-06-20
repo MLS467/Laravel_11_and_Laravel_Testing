@@ -4,6 +4,17 @@
     font-family: Arial, sans-serif;
 }
 
+
+.success {
+    width: 100%;
+    background-color: green;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    margin: 15px;
+}
+
 body {
     margin: 0;
     padding: 0;
