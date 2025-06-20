@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', WelcomeController::class);
 
-
-Route::match(['GET', 'POST', 'PUT'], '/home', [UserController::class, "group"])
+Route::get('/home', [UserController::class, 'index'])
     ->name('home');
 
-Route::view('/register', 'register');
-Route::view('/update/{id}', 'update');
+Route::post('/add', [UserController::class, 'getPostUser'])
+    ->name('add');

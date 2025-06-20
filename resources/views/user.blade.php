@@ -1,28 +1,20 @@
-@extends('layout.common')
+<div>
 
-@section('content')
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>E-mail</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($users as $user )
-        <tr>
-            <td>{{ $user->id }}</td>
-            <td>{{ $user->name }}</td>
-            <td>{{ $user->email }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
-
-@endsection
-
-
-@section('style')
-@extends('layout.style')
-@endsection
+    <form action={{ route('add') }} method="post">
+        @csrf
+        <div>
+            <label for="Name">Name : </label>
+            <input type="text" name="name" id="name">
+        </div>
+        <br><br><br>
+        <div>
+            <label for="Email">Email : </label>
+            <input type="text" name="email" id="email">
+        </div>
+        <br><br><br>
+        <div>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+    <!-- Simplicity is the essence of happiness. - Cedric Bledsoe -->
+</div>

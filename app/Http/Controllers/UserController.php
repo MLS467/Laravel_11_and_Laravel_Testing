@@ -2,29 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class UserController
 {
-    public function group(Request $request)
-    {
-        $method = $request->method();
 
-        switch ($method) {
-            case 'GET':
-                echo "method {$method}";
-                break;
-            case 'POST':
-                echo "method {$method}";
-                break;
-            case 'PUT':
-                echo "method {$method}";
-                break;
-            case 'DELETE':
-                echo "method {$method}";
-                break;
-        }
+    public function index()
+    {
+        return view('user');
+    }
+
+    public function getPostUser(Request $request)
+    {
+        echo $request->method();
+        echo "<br/>";
+        echo "<br/>";
+        echo $request->path();
+        echo "<br/>";
+        echo "<br/>";
+        echo $request->input('name');
+        echo "<br/>";
+        echo "<br/>";
+        echo $request->ip();
+        echo "<br/>";
+        echo "<br/>";
+        // echo "<pre>";
+        // print_r($request->input());
+        // echo "<pre/>";
+        echo "<pre>";
+        echo ($request->collect());
+        echo "<pre/>";
+        echo $request->isMethod('POST') ? "IS POST" : "ERRO";
     }
 }
